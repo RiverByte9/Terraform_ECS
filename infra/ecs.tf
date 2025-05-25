@@ -9,10 +9,12 @@ resource "aws_ecs_cluster" "main" {
 }
 
 #building template
-data "template_file" "services" {
+data "flask_app_template_file" "services" {
   template = file(var.flask_app_template_file)
   vars     = local.flask_ecs_services_vars
 }
+
+
 
 # ecs task definition
 resource "aws_ecs_task_definition" "services" {

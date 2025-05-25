@@ -46,7 +46,7 @@ variable "db_default_settings" {
 
 variable "flask_app_template_file" {
   description = "The path to the template file for the flask app"
-  default = "infra/Templates/flask-service.json.tpl"
+  default = "infra/templates/flask-service.json.tpl"
 
 }
 
