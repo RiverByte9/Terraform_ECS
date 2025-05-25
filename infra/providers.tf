@@ -8,7 +8,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.50"
+      version = "5.50.0"
     }
     random = {
       source  = "hashicorp/random"
@@ -16,10 +16,11 @@ terraform {
     }
     template = {
       source  = "hashicorp/template"
-      version = "2.2.0" # Update this to a compatible version
+      version = "2.2.0"
     }
   }
 }
+
 
 provider "aws" {
   region = "ap-south-1"
