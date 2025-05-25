@@ -46,6 +46,8 @@ variable "db_default_settings" {
 
 variable "flask_app_template_file" {
   description = "The path to the template file for the flask app"
+  default = "infra/Templates/flask-service.json.tpl"
+
 }
 
 variable "flask_app_cpu" {
@@ -77,6 +79,4 @@ variable "public_hosted_zone_id" {
 variable "domain_name" {
   description = "The domain name for the application"
 }
-variable "flask_app_template_file" {
-  default = "infra/Templates/flask-service.json.tpl"
-}
+
