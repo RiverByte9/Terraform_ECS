@@ -1,0 +1,40 @@
+
+name: Terraform Deploy
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'infra/**'
+      - '.github/workflows/terraform-deploy.yaml'
+  workflow_dispatch:
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ap-south-1
+      TERRAFORM_VER: 1.10.3
+      TERRAFORM_PATH: infra
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "${{ env.TERRAFORM_VER }}"
+      - name: Terraform Init
+        working-directory: ${{ env.TERRAFORM_PATH }}
+        run: terraform init
+      - name: Terraform Plan
+        working-directory: ${{ env.TERRAFORM_PATH }}
+        run: terraform plan
+      # Optional: Uncomment the below block to apply changes
+      # - name: Terraform Apply
+      #   working-directory: ${{ env.TERRAFORM_PATH }}
+      #   run: terraform apply -auto-approve
+      # Optional: Use this if you want to destroy instead of apply
+      # - name: Terraform Destroy
+      #   working-directory: ${{ env.TERRAFORM_PATH }}
+      #   run: terraform destroy -auto-approve
