@@ -77,3 +77,6 @@ variable "public_hosted_zone_id" {
 variable "domain_name" {
   description = "The domain name for the application"
 }
+variable "flask_app_template_file" {
+  default = "infra/Templates/flask-service.json.tpl"
+}
