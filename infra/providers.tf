@@ -4,7 +4,7 @@
 # template plugins
 
 terraform {
-  required_version = "1.8.1"
+  required_version = "1.10.3"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -28,7 +28,7 @@ provider "aws" {
 # Using S3 backend
 terraform {
   backend "s3" {
-    bucket  = "366140438193-devops-bootcamp-state"
+    bucket  = "334455-devops-bootcamp-state"
     key     = "2-tier-flask/dev-tfstate"
     region  = "ap-south-1"
     encrypt = true
