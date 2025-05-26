@@ -30,7 +30,7 @@ provider "aws" {
 # Using S3 backend
 terraform {
   backend "s3" {
-    bucket  = "334455-devops-bootcamp-state"
+    bucket  = "456-devops-bootcamp-state"
     key     = "2-tier-flask/dev-tfstate"
     region  = "ap-south-1"
     encrypt = true
